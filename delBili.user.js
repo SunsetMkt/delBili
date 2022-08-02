@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         批量删除哔哩哔哩动态
 // @namespace    https://github.com/lwd-temp/delBili
-// @version      0.0.1
+// @version      0.0.2
 // @description  批量删除哔哩动态
 // @author       plain
 // @match        *://space.bilibili.com/*/dynamic
@@ -11,22 +11,34 @@
 (function () {
     'use strict';
     window.onload = () => {
-        function $(elem) {
-            return document.querySelector(elem);
-        }
-        function $All(elem) {
-            return document.querySelectorAll(elem);
-        }
         function del() {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 9999; i++) {
                 setTimeout(function () {
-                    if ($('.bili-dyn-more__btn')) {
-                        $('.bili-dyn-more__btn').click();
-                        var item = $All('.bili-dyn-more__menu__item')
-                        item[1].click();
-                        $('.bili-modal') && $('.bili-modal').querySelectorAll('.bili-modal__button')[0].click();
-                        i > 5 && window.location.reload();
+
+                    if (document.querySelector('.bili-modal')) {
+                        var item = document.querySelectorAll('.bili-modal__button');
+                        for (let i = 0; i < item.length; i++) {
+                            if (item[i].innerText.includes('删除')) {
+                                item[i].click();
+                            }
+                        }
+                    } else {
+                        var item2 = document.querySelectorAll('.bili-dyn-more__menu__item')
+                        // for all item
+                        for (let i = 0; i < item2.length; i++) {
+                            // If include 删除
+                            if (item2[i].innerText.includes('删除')) {
+                                item2[i].click();
+                            }
+                        }
                     }
+
+                    // Scroll to bottom
+                    window.scrollTo(0, document.body.scrollHeight);
+
+                    // Refresh page every 20 loops
+                    i > 20 && window.location.reload();
+
                 }, 1000 * i);
             }
         }
