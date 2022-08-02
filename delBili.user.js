@@ -2,7 +2,7 @@
 // @name         批量删除哔哩哔哩动态
 // @namespace    https://github.com/lwd-temp/delBili
 // @version      0.0.1
-// @description  批量删除哔哩哔哩动态
+// @description  批量删除哔哩动态
 // @author       plain
 // @match        *://space.bilibili.com/*/dynamic
 // @grant        none
