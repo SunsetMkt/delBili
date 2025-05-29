@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         批量删除哔哩哔哩动态
-// @namespace    https://github.com/lwd-temp/delBili
+// @namespace    https://github.com/SunsetMkt/delBili
 // @version      0.0.2
 // @description  批量删除哔哩动态
 // @author       plain
